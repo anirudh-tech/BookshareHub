@@ -1,0 +1,45 @@
+<nav
+  class="navbar border-bottom border-body"
+  style="
+    position: sticky;
+    top: 0;
+    background: rgb(139, 134, 126);
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    z-index: 1000;
+  "
+>
+  <a href="#" class="align-self-center text-decoration-none">
+    <h2 class="ps-5 text-white fw-bold">BOOKSHAREHUB</h2>
+  </a>
+  <div>
+    <a href="/admin/logout" class="btn btn-info me-3">Logout</a>
+    <a
+      class="btn btn-primary me-3"
+      data-bs-toggle="offcanvas"
+      href="#offcanvasExample"
+      role="button"
+      aria-controls="offcanvasExample"
+    >
+    <i class="fas fa-bars"></i>
+    </a>
+  </div>
+</nav>
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" style="width: 270px;">
+    <div class="offcanvas-header" style="background-color: rgb(0, 6, 48);">
+        <h5 class="offcanvas-title text-white" id="offcanvasExampleLabel">BOOK SHARE HUB</h5>
+        <button type="button" class="btn-close text-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body" style="background-color: rgb(0, 6, 48); padding: 10px;">
+        <div class="list-group">
+            <a href="/admin/users-list" class="list-group-item list-group-item-action users-list mb-3">Users List</a>
+            <a href="/admin/sellers-list" class="list-group-item list-group-item-action sellers-list mb-3">Sellers List</a>
+            <a href="/admin/books-list" class="list-group-item list-group-item-action books-list mb-3">List Of Books</a>
+            <a href="/admin/renters-list" class="list-group-item list-group-item-action renters-list mb-3">Renters List</a>
+            <a href="/admin/writers-list" class="list-group-item list-group-item-action writers-list mb-3">Writers List</a>
+        </div>
+    </div>
+</div>

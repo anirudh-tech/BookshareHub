@@ -7,5 +7,20 @@ module.exports = {
         }
     },
 
+    getAdminHome: (req,res) => {
+        res.redirect("/admin/users-list")
+    },
+
+    getUsersList: (req,res) => {
+        res.render("admin/admin-usersList")
+    },
+
+    getSellersList:(req, res) => {
+        res.render("admin/admin-sellersList")
+    },
+
+    getBooksList: (req, res) => {
+        res.render("admin/admin-booksList")
+    },
     
 }

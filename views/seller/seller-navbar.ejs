@@ -1,0 +1,57 @@
+<div
+  id="navbar"
+  class="bg-dark"
+  style="
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  "
+>
+  <h1 id="logo" class="mb-0">
+    <span class="text-primary">B</span>
+    <span class="text-danger">O</span>
+    <span class="text-warning">O</span>
+    <span class="text-success">K</span>
+    <span class="text-primary">S</span>
+    <span class="text-danger">H</span>
+    <span class="text-warning">A</span>
+    <span class="text-success">R</span>
+    <span class="text-primary">E</span>
+    <span class="text-danger">H</span>
+    <span class="text-warning">U</span>
+    <span class="text-success">B</span>
+  </h1>
+  <div id="search-bar" class="mt-3">
+    <input
+      type="text"
+      id="search-input"
+      placeholder="Search..."
+      class="form-control"
+      style="border-radius: 5px; padding: 10px; background-color: #fff"
+    />
+  </div>
+  <div>
+    <a
+      class="btn btn-primary me-3"
+      data-bs-toggle="offcanvas"
+      href="#offcanvasExample"
+      role="button"
+      aria-controls="offcanvasExample"
+    >
+    <i class="fas fa-bars"></i>
+    </a>
+  </div>
+</div><div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" style="width: 270px;">
+    <div class="offcanvas-header" style="background-color: rgb(0, 6, 48);">
+        <h5 class="offcanvas-title text-white" id="offcanvasExampleLabel">BOOK SHARE HUB</h5>
+        <button type="button" class="btn-close text-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body" style="background-color: rgb(0, 6, 48); padding: 10px;">
+        <div class="list-group">
+            <a href="/seller/addedList" class="list-group-item list-group-item-action users-list mb-3">Show Added Books List</a>
+            <a href="/seller/soldList" class="list-group-item list-group-item-action users-list mb-3">Show Sold Books List</a>
+            <a href="/seller/account" class="list-group-item list-group-item-action books-list mb-3">Account</a>
+        </div>
+    </div>
+</div>

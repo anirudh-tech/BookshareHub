@@ -18,7 +18,7 @@
 		<h1>WELCOME TO BOOK SHARE HUB</h1>
 		<div class="main-agileinfo">
 			<div class="agileits-top">
-				<form action="#" method="post">
+				<form >
 					<input class="text" type="text" name="Username" placeholder="Username" required="">
 					<input class="text email" type="email" name="email" placeholder="Email" required="">
 					<input class="text" type="password" name="password" placeholder="Password" required="">
@@ -54,5 +54,83 @@
 		</ul>
 	</div>
 	<!-- //main -->
+	<!-- Include Axios library -->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const signupForm = document.querySelector('form');
+
+    signupForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+	  console.log('here')
+
+      const username = document.querySelector('input[name="Username"]').value.trim();
+      const email = document.querySelector('input[name="email"]').value.trim();
+      const password = document.querySelector('input[name="password"]').value.trim();
+      const confirmPassword = document.querySelector('input[name="password"]').value.trim();
+
+      // Perform more comprehensive validation
+      if (!username || !email || !password || !confirmPassword) {
+        alert('Please fill in all the fields');
+        return;
+      }
+
+      if (/\s/.test(username)) {
+        alert('Username cannot contain spaces');
+        return;
+      }
+
+      if (/\s/.test(email)) {
+        alert('Email cannot contain spaces');
+        return;
+      }
+
+      // Basic email format check using regex
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        alert('Invalid email format');
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        alert('Passwords do not match');
+        return;
+      }
+
+      // Make Axios POST request to the backend
+      fetch('/user/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          username: username,
+          email: email,
+          password: password,
+          confirmPassword: confirmPassword,
+        }),
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        // Handle success
+        console.log(data);
+        // Redirect or show success message as needed
+      })
+      .catch(error => {
+        // Handle error
+        console.error(error);
+        // Display error message to the user
+      });
+  });
+})
+</script>
+
 </body>
+
 </html>

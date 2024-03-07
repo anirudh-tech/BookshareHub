@@ -1,0 +1,77 @@
+<%- include('renter-header')%> 
+<%- include('renter-navbar')%>
+<div  class="text-end">
+    <button type="button" class="btn btn-primary mt-2 me-2" data-bs-toggle="modal" data-bs-target="#addBookModal">
+    Add Book
+    </button>
+</div>
+  
+  <div class="modal fade" id="addBookModal" tabindex="-1" aria-labelledby="addBookModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addBookModalLabel">Add New Book</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Form for adding a new book -->
+          <form action="/renter/addBook" method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+              <label for="bookName" class="form-label">Book Name</label>
+              <input type="text" name="bookName" class="form-control" id="bookName" placeholder="Enter book name" required>
+            </div>
+            <div class="mb-3">
+              <label for="rent" class="form-label">Rent</label>
+              <input type="number" name="rent" class="form-control" id="rent" placeholder="Enter the rent" required>
+            </div>
+            <div class="mb-3">
+              <label for="stock" class="form-label">Stock</label>
+              <input type="number" name="stock" class="form-control" id="stock" placeholder="Enter stock" required>
+            </div>
+            <div class="mb-3">
+              <label for="description" class="form-label">Description</label>
+              <textarea class="form-control" name="description" id="description" rows="3" placeholder="Enter description" required></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="image" class="form-label">Image URL</label>
+              <input
+              type="file"
+              name="image"
+              class="form-control-file"
+              id="image"
+              accept="image/*"
+            />            
+            </div>
+            <button type="submit" class="btn btn-primary">Add Book</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <table class="mt-5 table table-dark table-striped table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Book ID</th>
+            <th scope="col">Image</th>
+            <th scope="col">Book Name</th>
+            <th scope="col">Rent of Book</th>
+            <th scope="col">Status of Book</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% books.forEach((book, index) => { %>
+            <tr>
+                <th scope="row"><%= index + 1 %></th>
+                <td><img src="/uploads/<%= book.image %>" alt="<%= book.bookName %>" width="100"></td>
+                <td><%= book.bookName %></td>
+                <td><%= book.rent %></td>
+                <td><%= book.status %></td>
+            </tr>
+        <% }); %>
+    </tbody>
+</table>
+
+
+<%- include('renter-footer')%>
